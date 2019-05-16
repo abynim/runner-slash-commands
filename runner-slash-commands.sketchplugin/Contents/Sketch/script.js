@@ -23,8 +23,17 @@ var handleSlashCommand = function (context) {
   const commandID = context.command.identifier();
   const delimiter = ",";
   const params = context.runnerText.split(delimiter).filter(p => { return p != "" }).map(p => { return p.trim(); });
+  
+  if (commandID == "runJSCode") {
 
-  if (commandID == "resize") {
+    let script = "var sketch = require('sketch/dom');\nvar UI = require('sketch/ui');\n"
+    script += context.runnerText;
+
+    AppController.sharedInstance().runPluginScript_name(script, context.runnerSlashCommand);
+    return;
+
+  }
+  else if (commandID == "resize") {
 
     if (emptySelection(selectedLayers)) return;
 
@@ -42,7 +51,7 @@ var handleSlashCommand = function (context) {
     let rows = parseInt(params[0]) || 1;
     let columns = parseInt(params[1]) || 1;
     let verticalSpace = parseFloat(params[2]) || 0.0;
-    let horizontalSpace = parseFloat(params[3]) || 0.0;
+    let horizontalSpace = parseFloat(params[3]) || verticalSpace;
 
     // Group layers if /command is triggered with 'option'
     let shouldGroupLayers = context.runnerModifiers.option == 1;
@@ -75,6 +84,21 @@ var handleSlashCommand = function (context) {
     if (emptySelection(selectedLayers)) return;
 
     addBorder(selectedLayers, params);
+
+  }
+
+  else if (commandID == "setFill") {
+
+    let color = params[0] || "#000";
+
+    selectedLayers.map(layer => {
+      layer.style.fills = [
+        {
+          color: color,
+          fillType: Style.FillType.Color
+        }
+      ]
+    });
 
   }
 

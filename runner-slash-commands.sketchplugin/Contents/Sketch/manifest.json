@@ -11,6 +11,18 @@
     {
       "script" : "script.js",
       "icon" : "runner-slash-icon.png",
+      "name" : "/script",
+      "hint" : "[code]",
+      "placeholder" : "UI.message('Hello Runner!')",
+      "description" : "Run a JavaScript snippet",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "runJSCode"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
       "name" : "/resize",
       "hint" : "[width, height]",
       "placeholder" : "200, 100",
@@ -48,13 +60,25 @@
       "script" : "script.js",
       "icon" : "runner-slash-icon.png",
       "name" : "/border",
-      "hint" : "[t, r, b, l, #000] or [borderWidth[t/r/b/l], #000] or [help]",
-      "placeholder" : "0,1,1,1,#07e",
+      "hint" : "[top, right, bottom, left, color] or [borderWidth[t|r|b|l], color] or [help]",
+      "placeholder" : "0, 1, 1, 1, #07e | 2b, gray | 5, orange",
       "description" : "Add shadows as borders",
       "handlers" : {
         "run" : "handleSlashCommand"
       },
       "identifier" : "addBorder"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/fill-set",
+      "hint" : "color",
+      "placeholder" : "#07e | bisque | #c0ffee99",
+      "description" : "Set the fill color",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "setFill"
     }
   ],
   "menu" : {
@@ -68,7 +92,9 @@
       "resize",
       "makeGrid",
       "createArtboard",
-      "addBorder"
+      "addBorder",
+      "setFill",
+      "runJSCode"
     ]
   },
   "icon" : "runner-slash-icon.png",
