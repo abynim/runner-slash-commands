@@ -1,0 +1,80 @@
+{
+  "commands" : [
+    {
+      "script" : "script.js",
+      "name" : "Help",
+      "handlers" : {
+        "run" : "showHelp"
+      },
+      "identifier" : "help"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/resize",
+      "hint" : "[width, height]",
+      "placeholder" : "200, 100",
+      "description" : "Resize selected layers",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "resize"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/make-grid",
+      "hint" : "[rows, columns, verticalSpace, horizontalSpace]",
+      "placeholder" : "5, 1, 10, 0",
+      "description" : "Make a grid from selected layers",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "makeGrid"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/artboard",
+      "hint" : "[width, height] or [preset]",
+      "placeholder" : "375, 667",
+      "description" : "Create an artboard",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "createArtboard"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/border",
+      "hint" : "[t, r, b, l, #000] or [borderWidth[t/r/b/l], #000] or [help]",
+      "placeholder" : "0,1,1,1,#07e",
+      "description" : "Add shadows as borders",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "addBorder"
+    }
+  ],
+  "menu" : {
+    "title" : "Run/",
+    "items" : [
+      "help"
+    ]
+  },
+  "runner" : {
+    "slashCommands" : [
+      "resize",
+      "makeGrid",
+      "createArtboard",
+      "addBorder"
+    ]
+  },
+  "icon" : "runner-slash-icon.png",
+  "identifier" : "com.sketchrunner.slash-commands",
+  "version" : "0.1",
+  "description" : "An example plugin to handle /Commands from Runner Pro.",
+  "authorEmail" : "developers@sketchrunner.com",
+  "name" : "Run/"
+}
