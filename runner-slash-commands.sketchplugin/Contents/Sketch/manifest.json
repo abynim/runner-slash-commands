@@ -40,9 +40,22 @@
       "placeholder" : "5, 1, 10, 0",
       "description" : "Make a grid from selected layers",
       "handlers" : {
-        "run" : "handleSlashCommand"
+        "run" : "handleSlashCommand",
+        "ValidateSlashCommand" : "handleValidateCommand"
       },
       "identifier" : "makeGrid"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/pin",
+      "hint" : "[l/t/r/b/w/h]",
+      "placeholder" : "ltrh",
+      "description" : "Set resizing constraints for selected layers",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "setContraints"
     },
     {
       "script" : "script.js",
@@ -52,7 +65,8 @@
       "placeholder" : "375, 667",
       "description" : "Create an artboard",
       "handlers" : {
-        "run" : "handleSlashCommand"
+        "run" : "handleSlashCommand",
+        "ValidateSlashCommand" : "handleValidateCommand"
       },
       "identifier" : "createArtboard"
     },
@@ -71,7 +85,7 @@
     {
       "script" : "script.js",
       "icon" : "runner-slash-icon.png",
-      "name" : "/fill-set",
+      "name" : "/fill",
       "hint" : "color",
       "placeholder" : "#07e | bisque | #c0ffee99",
       "description" : "Set the fill color",
@@ -79,6 +93,18 @@
         "run" : "handleSlashCommand"
       },
       "identifier" : "setFill"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/open-library",
+      "placeholder" : "Library Name",
+      "description" : "Opens a library",
+      "handlers" : {
+        "run" : "handleSlashCommand",
+        "ValidateSlashCommand" : "handleValidateCommand"
+      },
+      "identifier" : "openLibrary"
     }
   ],
   "menu" : {
@@ -91,10 +117,12 @@
     "slashCommands" : [
       "resize",
       "makeGrid",
+      "setContraints",
       "createArtboard",
       "addBorder",
       "setFill",
-      "runJSCode"
+      "runJSCode",
+      "openLibrary"
     ]
   },
   "icon" : "runner-slash-icon.png",
@@ -102,5 +130,6 @@
   "version" : "0.1",
   "description" : "An example plugin to handle /Commands from Runner Pro.",
   "authorEmail" : "developers@sketchrunner.com",
+  "disableCocoaScriptPreprocessor" : true,
   "name" : "Run/"
 }
