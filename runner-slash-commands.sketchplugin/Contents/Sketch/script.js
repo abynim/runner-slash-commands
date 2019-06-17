@@ -82,7 +82,15 @@ var handleSlashCommand = function (context) {
 
   else if (commandID == "openLibrary") {
     
-    require('./slash-commands/createArtboard').onRun(context);
+    require('./slash-commands/openLibrary').onRun(context);
+
+  }
+
+  else if (commandID == "spacing") {
+
+    if (emptySelection(selectedLayers)) return;
+
+    require('./slash-commands/adjustSpacing').onRun(selectedLayers, context.runnerText);
 
   }
 
@@ -120,7 +128,7 @@ var handleValidateCommand = function (context) {
     
   }
   
-  else if (commandID == "makeGrid" || commandID == "setContraints" || commandID == "resize") {
+  else if (commandID == "makeGrid" || commandID == "setContraints" || commandID == "resize" || commandID == "spacing") {
 
     emptySelection(selectedLayers);
 

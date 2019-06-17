@@ -105,6 +105,19 @@
         "ValidateSlashCommand" : "handleValidateCommand"
       },
       "identifier" : "openLibrary"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/spacing",
+      "hint" : "[axis]distance [alignment]",
+      "placeholder" : "h10 c",
+      "description" : "Adjusts spacing between selected layers",
+      "handlers" : {
+        "run" : "handleSlashCommand",
+        "ValidateSlashCommand" : "handleValidateCommand"
+      },
+      "identifier" : "spacing"
     }
   ],
   "menu" : {
@@ -122,7 +135,8 @@
       "addBorder",
       "setFill",
       "runJSCode",
-      "openLibrary"
+      "openLibrary",
+      "spacing"
     ]
   },
   "icon" : "runner-slash-icon.png",
