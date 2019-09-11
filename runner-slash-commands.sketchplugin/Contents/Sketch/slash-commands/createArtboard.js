@@ -103,14 +103,27 @@ var createArtboardInDocumentFromPreset = function (doc, preset) {
 
   if (w == 0 && h == 0) {
 
-    let width = parseInt(preset) || 0;
+    preset = preset.replace(/×/g, 'x').replace(/\*/g, 'x');
+    let width;
+    let height;
+    let dimensions = preset.toLowerCase().split('x');
+    
+    if(dimensions.length == 2) {
+      width = parseInt(dimensions[0]);
+      height = parseInt(dimensions[1]);
+    }
+    else {
+      width = parseInt(preset) || 0;
+    }
+    
     if (width == 0) {
       UI.message('This preset is not supported yet, so using 375 x 667.');
       w = 375;
       h = 667;
     }
     else {
-      w = h = width;
+      w = width;
+      h = height || width;
     }
 
   }

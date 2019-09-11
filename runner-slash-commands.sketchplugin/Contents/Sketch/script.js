@@ -29,11 +29,28 @@ var handleSlashCommand = function (context) {
     return;
 
   }
+
   else if (commandID == "resize") {
 
     if (emptySelection(selectedLayers)) return;
 
     require('./slash-commands/resize').onRun(selectedLayers, params);
+
+  }
+
+  else if (commandID == "setWidth") {
+
+    if (emptySelection(selectedLayers)) return;
+
+    require('./slash-commands/setWidth').onRun(selectedLayers, context.runnerText);
+
+  }
+
+  else if (commandID == "setHeight") {
+
+    if (emptySelection(selectedLayers)) return;
+
+    require('./slash-commands/setHeight').onRun(selectedLayers, context.runnerText);
 
   }
 

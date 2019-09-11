@@ -35,6 +35,30 @@
     {
       "script" : "script.js",
       "icon" : "runner-slash-icon.png",
+      "name" : "/width",
+      "hint" : "[width]",
+      "placeholder" : "200",
+      "description" : "Set the width of selected layers",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "setWidth"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
+      "name" : "/height",
+      "hint" : "[height]",
+      "placeholder" : "200",
+      "description" : "Set the height of selected layers",
+      "handlers" : {
+        "run" : "handleSlashCommand"
+      },
+      "identifier" : "setHeight"
+    },
+    {
+      "script" : "script.js",
+      "icon" : "runner-slash-icon.png",
       "name" : "/make-grid",
       "hint" : "[rows, columns, verticalSpace, horizontalSpace]",
       "placeholder" : "5, 1, 10, 0",
@@ -129,6 +153,8 @@
   "runner" : {
     "slashCommands" : [
       "resize",
+      "setWidth",
+      "setHeight",
       "makeGrid",
       "setContraints",
       "createArtboard",
